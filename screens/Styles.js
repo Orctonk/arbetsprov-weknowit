@@ -14,5 +14,11 @@ export default StyleSheet.create({
   button: {
     width: '90%',
     marginTop: 10
-  }
+  },
+  input: {
+    height: 40,
+    borderColor: '#7a42f4',
+    borderWidth: 1,
+    width: '100%'
+ },
 });
