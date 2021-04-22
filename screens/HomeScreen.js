@@ -1,5 +1,6 @@
 import React from 'react';
-import { StyleSheet, Text, View, Button} from 'react-native';
+import {Text, View, Button} from 'react-native';
+import styles from './Styles';
 
 export default function HomeScreen() {
   return (
@@ -14,20 +15,3 @@ export default function HomeScreen() {
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#ffe',
-    alignItems: 'center',
-    justifyContent: 'flex-start',
-  },
-  title: {
-    fontSize: 48,
-    marginVertical: 120
-  },
-  button: {
-    width: '90%',
-    marginTop: 10
-  }
-});
