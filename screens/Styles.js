@@ -8,8 +8,8 @@ export default StyleSheet.create({
     justifyContent: 'flex-start',
   },
   title: {
-    fontSize: 48,
-    marginVertical: 120
+    fontSize: 36,
+    marginVertical: '25%'
   },
   button: {
     width: '90%',
