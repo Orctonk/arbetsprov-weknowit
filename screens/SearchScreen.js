@@ -1,5 +1,5 @@
 import React from 'react';
-import {Text, View, Button, TextInput} from 'react-native';
+import {Text, View, Image, TouchableOpacity, TextInput} from 'react-native';
 import styles from './Styles';
 
 export default function CountrySearchScreen() {
@@ -9,9 +9,12 @@ export default function CountrySearchScreen() {
       <View style={styles.button}>
         <TextInput style={styles.input}/>  
       </View>
-      <View style={styles.button}>
-        <Button title="SEARCH"/>  
-      </View>
+      <TouchableOpacity style={styles.searchButton}>
+        <Image 
+          style={styles.searchIcon}
+          source={require('../assets/searchIcon.png')}
+        />
+      </TouchableOpacity>
     </View>
   );
 }

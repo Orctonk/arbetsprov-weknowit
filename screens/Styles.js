@@ -20,5 +20,18 @@ export default StyleSheet.create({
     borderColor: '#7a42f4',
     borderWidth: 1,
     width: '100%'
- },
+  },
+  searchIcon: {
+    resizeMode: 'contain',
+    width: '65%',
+    top: -230,
+    left: 10
+  },
+  searchButton:{
+    marginTop: 15,
+    width: 60,
+    height: 60,
+    borderWidth: 2,
+    borderRadius: 30
+  }
 });
