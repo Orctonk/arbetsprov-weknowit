@@ -1,5 +1,7 @@
 import { StyleSheet } from 'react-native';
 
+// Defines a global style sheet for the entire project to make it easier to
+// change variables across the entire project
 export default StyleSheet.create({
   container: {
     flex: 1,

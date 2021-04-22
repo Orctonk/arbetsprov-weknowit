@@ -2,6 +2,7 @@ import React from 'react';
 import {Text, View, Image, TouchableOpacity, TextInput} from 'react-native';
 import styles from './Styles';
 
+// Defines a screen where the user can search for a city by name
 export default function CountrySearchScreen() {
   return (
     <View style={styles.container}>
