@@ -18,6 +18,7 @@ export default StyleSheet.create({
     marginTop: 10
   },
   input: {
+    padding: 10,
     height: 40,
     borderColor: '#7a42f4',
     borderWidth: 1,
@@ -35,5 +36,11 @@ export default StyleSheet.create({
     height: 60,
     borderWidth: 2,
     borderRadius: 30
+  },
+  details: {
+    width: '90%',
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'flex-start'
   }
 });
