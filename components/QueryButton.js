@@ -14,7 +14,7 @@ export default function QueryButton({navigation, cityName, onError}) {
       }>
       <Image 
         style={styles.searchIcon}
-        source={require('../assets/searchIcon.png')}
+        source={getIcon(isLoading)}
       />
     </TouchableOpacity>
   );
@@ -37,5 +37,13 @@ function onSearchCity(cityName, setLoading, onError, navigation) {
       }))
       .catch(() => {onError()})
       .then(() => setLoading(false));
+  }
+}
+
+function getIcon(loading){
+  if(loading){
+    return require('../assets/loading.gif');
+  } else {
+    return require('../assets/searchIcon.png');
   }
 }
