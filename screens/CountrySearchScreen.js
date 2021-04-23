@@ -16,6 +16,17 @@ export default function CountrySearchScreen({navigation}) {
           onChangeText={onChangeText}
           placeholder='Enter a Country'/>  
       </View>
+      <QueryButton 
+        query={{
+          'q': inputCountry,
+          'username': 'weknowit',
+          'maxRows': 3,
+          'type': 'json',
+          'featureClass': 'P',
+          'orderby': 'population'
+        }}
+        onSuccess={(result) => console.log(result)} 
+        onError={() => alert("Test")}/>
     </View>
   );
 }
