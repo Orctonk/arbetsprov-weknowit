@@ -1,5 +1,5 @@
 import React from 'react';
-import {Text, View, Image, TouchableOpacity, TextInput} from 'react-native';
+import {Text, View, TextInput} from 'react-native';
 import styles from '../Styles';
 import QueryButton from '../components/QueryButton'
 
