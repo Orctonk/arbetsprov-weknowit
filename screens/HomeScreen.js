@@ -8,14 +8,16 @@ export default function HomeScreen({navigation}) {
     <View style={styles.container}>
       <Text style={styles.title}>CityPop</Text>
       <View style={styles.button}>
-        <Button title="SEARCH BY CITY"/>  
+        <Button 
+          title="SEARCH BY CITY"
+          onPress={() =>
+            navigation.navigate('CitySearch')
+          }
+        />  
       </View>
       <View style={styles.button}>
         <Button 
           title="SEARCH BY COUNTRY"
-          onPress={() =>
-            navigation.navigate('CountrySearch')
-          }
         />
       </View>
     </View>

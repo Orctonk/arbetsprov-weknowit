@@ -4,7 +4,7 @@ import styles from '../Styles';
 import QueryButton from '../components/QueryButton'
 
 // Defines a screen where the user can search for a city by name
-export default function CountrySearchScreen({navigation}) {
+export default function CitySearchScreen({navigation}) {
   const [inputCity, onChangeText] = React.useState('Enter a City');
 
   return (
