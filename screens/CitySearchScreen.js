@@ -24,7 +24,9 @@ export default function CitySearchScreen({navigation}) {
           'type': 'json',
           'featureClass': 'P'
         }}
-        onSuccess={(result) => navigation.navigate('CityDetail', result)} 
+        onSuccess={ (result) => navigation.navigate('CityDetail', {
+          'cityResult': result.geonames[0]
+        })} 
         onError={() => alert("Test")}/>
     </View>
   );

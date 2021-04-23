@@ -6,6 +6,7 @@ import HomeScreen from './screens/HomeScreen'
 import CitySearchScreen from './screens/CitySearchScreen'
 import CountrySearchScreen from './screens/CountrySearchScreen'
 import CityDetailScreen from './screens/CityDetailScreen'
+import CountryDetailScreen from './screens/CountryDetailScreen'
 
 // Create a navigation stack to allow for easy navigation between different screens
 const navStack = createStackNavigator();
@@ -32,6 +33,11 @@ export default function CityPop() {
         <navStack.Screen
           name="CountrySearch"
           component={CountrySearchScreen}
+          options={{ title: "CityPop" }} 
+        />
+        <navStack.Screen
+          name="CountryDetail"
+          component={CountryDetailScreen}
           options={{ title: "CityPop" }} 
         />
       </navStack.Navigator>

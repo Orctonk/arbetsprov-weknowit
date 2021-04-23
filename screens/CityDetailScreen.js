@@ -4,8 +4,7 @@ import styles from '../Styles';
 
 // Defines a screen which displays details about the specified city
 export default function CityDetailsScreen({route}) {
-  const { geonames } = route.params;
-  const cityResult = geonames[0]
+  const { cityResult } = route.params;
   const {name, population} = cityResult;
 
   return (
