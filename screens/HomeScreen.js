@@ -18,6 +18,9 @@ export default function HomeScreen({navigation}) {
       <View style={styles.button}>
         <Button 
           title="SEARCH BY COUNTRY"
+          onPress={() =>
+            navigation.navigate('CountrySearch')
+          }
         />
       </View>
     </View>
