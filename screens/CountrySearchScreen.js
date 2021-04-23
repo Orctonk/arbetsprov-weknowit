@@ -25,7 +25,7 @@ export default function CountrySearchScreen({navigation}) {
           'featureClass': 'P',
           'orderby': 'population'
         }}
-        onSuccess={(result) => console.log(result)} 
+        onSuccess={(result) => navigation.navigate('CountryDetail', result)} 
         onError={() => alert("Test")}/>
     </View>
   );
