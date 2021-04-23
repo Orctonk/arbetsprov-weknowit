@@ -21,7 +21,8 @@ export default function CitySearchScreen({navigation}) {
           'name': inputCity,
           'username': 'weknowit',
           'maxRows': 1,
-          'type': 'json'
+          'type': 'json',
+          'featureClass': 'P'
         }}
         onSuccess={(result) => navigation.navigate('CityDetail', result)} 
         onError={() => alert("Test")}/>
