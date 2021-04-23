@@ -27,7 +27,7 @@ export default StyleSheet.create({
   searchIcon: {
     resizeMode: 'contain',
     width: '65%',
-    top: -230,
+    top: -101,
     left: 10
   },
   searchButton:{
