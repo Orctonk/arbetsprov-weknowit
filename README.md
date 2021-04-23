@@ -16,4 +16,4 @@ This will open a web page with a QR code, to run the application on your local d
 ### Troubleshooting
 If starting the app results in a *SocketTimeoutException*, the ports 19000 and 19001 might have to be opened for TCP connections. Please refer to the relevant OS guide on how to do this.
 
-If this does not work the development server might have to bee started in tunneling mode instead. To do this, add *--tunnel* to the start command
+If this does not work the development server might have to be put in tunneling mode. To do this select tunnel from the web interface and rescan the QR-code
