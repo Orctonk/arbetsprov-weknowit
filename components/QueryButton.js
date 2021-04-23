@@ -1,5 +1,5 @@
 import React from 'react';
-import {Text, View, Image, TouchableOpacity, TextInput} from 'react-native';
+import {Image, TouchableOpacity} from 'react-native';
 import styles from '../Styles';
 
 // A Button component for querying the geoname api
