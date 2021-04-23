@@ -1,6 +1,6 @@
 import React from 'react';
 import {Text, View, Button} from 'react-native';
-import styles from './Styles';
+import styles from '../Styles';
 
 // Defines the initial screen of the app when started
 export default function HomeScreen({navigation}) {
