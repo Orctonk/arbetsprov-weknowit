@@ -10,7 +10,7 @@ export default StyleSheet.create({
     justifyContent: 'flex-start',
   },
   title: {
-    fontSize: 36,
+    fontSize: 32,
     marginVertical: '25%'
   },
   button: {
