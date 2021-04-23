@@ -16,7 +16,15 @@ export default function CitySearchScreen({navigation}) {
           onChangeText={onChangeText}
           placeholder='Enter a city'/>  
       </View>
-      <QueryButton cityName={inputCity} navigation={navigation} onError={() => alert("Test")}/>
+      <QueryButton 
+        query={{
+          'name': inputCity,
+          'username': 'weknowit',
+          'maxRows': 1,
+          'type': 'json'
+        }}
+        onSuccess={(result) => navigation.navigate('CityDetail', result)} 
+        onError={() => alert("Test")}/>
     </View>
   );
 }
