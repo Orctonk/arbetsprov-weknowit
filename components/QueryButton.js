@@ -28,7 +28,14 @@ function onSearchCity(query, setLoading, onSuccess, onError) {
   fetch('http://api.geonames.org/search?' + getQueryString(query))
     .then(response => response.json())
     .then(
-      data => onSuccess(data),
+      data => {
+        // Check if query return any results and return error if not
+        if(validateResult(data)){
+          onSuccess(data);
+        } else {
+          onError();
+        }
+      },
       () => onError()
     )
     .finally(() => setLoading(false));
@@ -52,4 +59,15 @@ function getQueryString(queryObj){
   }
   // Add '&' between each pair
   return pairs.join('&');
+}
+
+// Checks to ensure that the result of the query is good to display
+function validateResult(data){
+  const { totalResultsCount } = data;
+
+  if(totalResultsCount == 0){
+    return false;
+  }
+
+  return true;
 }
