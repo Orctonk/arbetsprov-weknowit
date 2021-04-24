@@ -24,8 +24,13 @@ export default function QueryButton({query, onSuccess, onError}) {
 // or triggers a provided error hook on error
 function onSearchCity(query, setLoading, onSuccess, onError) {
   // Get data from api
-  setLoading(true);
-  fetch('http://api.geonames.org/search?' + getQueryString(query))
+  queryString = getQueryString(query);
+  // Check if query is empty
+  if(!queryString){
+    onError("Please enter a search term");
+  } else {
+    setLoading(true);
+    fetch('http://api.geonames.org/search?' + queryString)
     .then(response => response.json())
     .then(
       data => {
@@ -37,8 +42,9 @@ function onSearchCity(query, setLoading, onSuccess, onError) {
         }
       },
       () => onError('Something went wrong, please try again later')
-    )
-    .finally(() => setLoading(false));
+      )
+      .finally(() => setLoading(false));
+  }
 }
 
 // Gets the icon for the current query button state
@@ -50,10 +56,13 @@ function getIcon(loading){
   }
 }
 
-// Converts a key-value pair to a url query string
+// Converts a key-value pair to a url query string, returns null if a value is missing
 function getQueryString(queryObj){
   const pairs = [];
   for(const name in queryObj){
+    if(!queryObj[name]){
+      return null;
+    }
     // name=val for each pair
     pairs.push(encodeURIComponent(name) + '=' + encodeURIComponent(queryObj[name]));
   }

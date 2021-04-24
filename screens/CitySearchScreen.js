@@ -5,7 +5,7 @@ import QueryButton from '../components/QueryButton'
 
 // Defines a screen where the user can search for a city by name
 export default function CitySearchScreen({navigation}) {
-  const [inputCity, onChangeText] = React.useState('Enter a City');
+  const [inputCity, onChangeText] = React.useState(null);
   const [error, setError] = React.useState(null);
 
   return (
@@ -14,7 +14,10 @@ export default function CitySearchScreen({navigation}) {
       <View style={styles.button}>
         <TextInput 
           style={getInputStyle(error)}
-          onChangeText={onChangeText}
+          onChangeText={(text) => {
+            onChangeText(text);
+            setError(null);
+          }}
           placeholder='Enter a city'/>  
       </View>
       { 

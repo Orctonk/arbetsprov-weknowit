@@ -5,7 +5,7 @@ import QueryButton from '../components/QueryButton'
 
 // Defines a screen where the user can search for a country by name
 export default function CountrySearchScreen({navigation}) {
-  const [inputCountry, onChangeText] = React.useState('Enter a Country');
+  const [inputCountry, onChangeText] = React.useState(null);
   const [error, setError] = React.useState(null);
 
   return (
@@ -14,7 +14,10 @@ export default function CountrySearchScreen({navigation}) {
       <View style={styles.button}>
         <TextInput 
           style={getInputStyle(error)}
-          onChangeText={onChangeText}
+          onChangeText={(text) => {
+            onChangeText(text);
+            setError(null);
+          }}
           placeholder='Enter a Country'/>  
       </View>
       { 
