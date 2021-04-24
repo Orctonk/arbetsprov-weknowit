@@ -52,7 +52,7 @@ const styles = StyleSheet.create({
   },
   errorMessage: {
     fontSize: 16,
-    marginVertical: 10,
+    marginTop: 10,
     color: "#FF0000"
   },
 });
