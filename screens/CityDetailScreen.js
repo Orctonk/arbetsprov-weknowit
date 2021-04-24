@@ -1,6 +1,6 @@
 import React from 'react';
 import {Text, View} from 'react-native';
-import styles from '../Styles';
+import {styles} from '../Styles.js';
 
 // Defines a screen which displays details about the specified city
 export default function CityDetailsScreen({route}) {

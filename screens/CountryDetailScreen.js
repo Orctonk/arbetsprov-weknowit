@@ -1,6 +1,6 @@
 import React from 'react';
 import {Text, View, Button} from 'react-native';
-import styles from '../Styles';
+import {styles} from '../Styles';
 
 // Defines a screen which displays the most populous cities in the country
 export default function CountryDetailsScreen({navigation,route}) {

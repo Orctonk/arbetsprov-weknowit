@@ -1,6 +1,6 @@
 import React from 'react';
 import {Image, TouchableOpacity} from 'react-native';
-import styles from '../Styles';
+import {styles} from '../Styles';
 
 // A Button component for querying the geoname api
 export default function QueryButton({query, onSuccess, onError}) {
@@ -33,10 +33,10 @@ function onSearchCity(query, setLoading, onSuccess, onError) {
         if(validateResult(data)){
           onSuccess(data);
         } else {
-          onError();
+          onError('No results found!');
         }
       },
-      () => onError()
+      () => onError('Something went wrong, please try again later')
     )
     .finally(() => setLoading(false));
 }

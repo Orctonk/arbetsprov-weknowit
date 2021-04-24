@@ -1,21 +1,27 @@
 import React from 'react';
 import {Text, View, TextInput} from 'react-native';
-import styles from '../Styles';
+import {styles, getInputStyle} from '../Styles.js';
 import QueryButton from '../components/QueryButton'
 
 // Defines a screen where the user can search for a city by name
 export default function CitySearchScreen({navigation}) {
   const [inputCity, onChangeText] = React.useState('Enter a City');
+  const [error, setError] = React.useState(null);
 
   return (
     <View style={styles.container}>
       <Text style={styles.title}>SEARCH BY CITY</Text>
       <View style={styles.button}>
         <TextInput 
-          style={styles.input}
+          style={getInputStyle(error)}
           onChangeText={onChangeText}
           placeholder='Enter a city'/>  
       </View>
+      { 
+        // Render error message if there is one
+        !error ? null : (
+        <Text style={styles.errorMessage}>{error}</Text>
+      )}
       <QueryButton 
         query={{
           'name': inputCity,
@@ -24,10 +30,11 @@ export default function CitySearchScreen({navigation}) {
           'type': 'json',
           'featureClass': 'P'
         }}
-        onSuccess={ (result) => navigation.navigate('CityDetail', {
-          'cityResult': result.geonames[0]
-        })} 
-        onError={() => alert("Test")}/>
+        onSuccess={ (result) => {
+          navigation.navigate('CityDetail', {'cityResult': result.geonames[0]});
+          setError(null);
+        }} 
+        onError={setError}/>
     </View>
   );
 }
