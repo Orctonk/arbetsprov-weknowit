@@ -14,6 +14,7 @@ export default function CityDetailsScreen({route}) {
         <Text>POPULATION</Text>  
         <Text style={{fontSize: 32}}>{population}</Text>  
       </View>
+      <View style={{ flex: 1 }} />
     </View>
   );
 }

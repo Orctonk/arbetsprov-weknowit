@@ -7,7 +7,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#ffe',
     alignItems: 'center',
-    justifyContent: 'flex-start',
+    justifyContent: 'flex-end',
   },
   title: {
     fontSize: 32,
@@ -33,12 +33,13 @@ const styles = StyleSheet.create({
   },
   searchIcon: {
     resizeMode: 'contain',
-    width: '65%',
-    top: -101,
-    left: 10
+    width: 40,
+    height: 40,
+    top: 7,
+    left: 7
   },
   searchButton:{
-    marginTop: 15,
+    marginVertical: 15,
     width: 60,
     height: 60,
     borderWidth: 2,

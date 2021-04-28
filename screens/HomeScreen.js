@@ -23,6 +23,7 @@ export default function HomeScreen({navigation}) {
           }
         />
       </View>
+      <View style={{ flex: 1 }} />
     </View>
   );
 }

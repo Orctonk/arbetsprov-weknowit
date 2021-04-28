@@ -1,5 +1,5 @@
 import React from 'react';
-import {Text, View, TextInput} from 'react-native';
+import {Text, View, TextInput, KeyboardAvoidingView, Platform} from 'react-native';
 import {styles, getInputStyle} from '../Styles.js';
 import QueryButton from '../components/QueryButton'
 
@@ -9,7 +9,9 @@ export default function CitySearchScreen({navigation}) {
   const [error, setError] = React.useState(null);
 
   return (
-    <View style={styles.container}>
+    <KeyboardAvoidingView 
+      behavior={Platform.OS === "ios" ? "padding" : "margin"} 
+      style={styles.container}>
       <Text style={styles.title}>SEARCH BY CITY</Text>
       <View style={styles.button}>
         <TextInput 
@@ -38,6 +40,7 @@ export default function CitySearchScreen({navigation}) {
           setError(null);
         }} 
         onError={setError}/>
-    </View>
+        <View style={{ flex: 1 }} />
+    </KeyboardAvoidingView>
   );
 }

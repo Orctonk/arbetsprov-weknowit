@@ -9,7 +9,9 @@ export default function CountrySearchScreen({navigation}) {
   const [error, setError] = React.useState(null);
 
   return (
-    <View style={styles.container}>
+    <KeyboardAvoidingView 
+      behavior={Platform.OS === "ios" ? "padding" : "margin"} 
+      style={styles.container}>
       <Text style={styles.title}>SEARCH BY COUNTRY</Text>
       <View style={styles.button}>
         <TextInput 
@@ -39,6 +41,7 @@ export default function CountrySearchScreen({navigation}) {
           setError(null);
         }} 
         onError={setError}/>
-    </View>
+        <View style={{ flex: 1 }} />
+    </KeyboardAvoidingView>
   );
 }

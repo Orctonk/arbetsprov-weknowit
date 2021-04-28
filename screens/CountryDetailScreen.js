@@ -18,6 +18,7 @@ export default function CountryDetailsScreen({navigation,route}) {
             })}/>
         </View>
       ))}
+      <View style={{ flex: 1 }} />
     </View>
   );
 }
