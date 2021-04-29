@@ -1,4 +1,5 @@
 import React from 'react';
+import {GEONAMES_URL, getQueryString, validateResult} from '../util/QueryUtil'
 import {Image, TouchableOpacity} from 'react-native';
 import {styles} from '../Styles';
 
@@ -30,18 +31,18 @@ function onSearchCity(query, setLoading, onSuccess, onError) {
     onError("Please enter a search term");
   } else {
     setLoading(true);
-    fetch('http://api.geonames.org/search?' + queryString)
-    .then(response => response.json())
-    .then(
-      data => {
-        // Check if query return any results and return error if not
-        if(validateResult(data)){
-          onSuccess(data);
-        } else {
-          onError('No results found!');
-        }
-      },
-      () => onError('Something went wrong, please try again later')
+    fetch(GEONAMES_URL + queryString)
+      .then(response => response.json())
+      .then(
+        data => {
+          // Check if query return any results and return error if not
+          if(validateResult(data)){
+            onSuccess(data);
+          } else {
+            onError('No results found!');
+          }
+        },
+        () => onError('Something went wrong, please try again later')
       )
       .finally(() => setLoading(false));
   }
@@ -54,29 +55,4 @@ function getIcon(loading){
   } else {
     return require('../assets/searchIcon.png');
   }
-}
-
-// Converts a key-value pair to a url query string, returns null if a value is missing
-function getQueryString(queryObj){
-  const pairs = [];
-  for(const name in queryObj){
-    if(!queryObj[name]){
-      return null;
-    }
-    // name=val for each pair
-    pairs.push(encodeURIComponent(name) + '=' + encodeURIComponent(queryObj[name]));
-  }
-  // Add '&' between each pair
-  return pairs.join('&');
-}
-
-// Checks to ensure that the result of the query is good to display
-function validateResult(data){
-  const { totalResultsCount } = data;
-
-  if(totalResultsCount == 0){
-    return false;
-  }
-
-  return true;
 }
