@@ -6,9 +6,8 @@ import { GEONAMES_URL, getQueryString } from '../util/QueryUtil';
 // Defines a screen which displays the most populous cities in the country
 export default function CountryDetailsScreen({navigation,route}) {
   const [ cities, setCities ] = React.useState(null);
+  const [ loadText, setLoadText ] = React.useState("Loading...");
   const { countryName, countryCode } = route.params;
-
-  console.log(route.params);
 
   React.useEffect(() => {
     const query={
@@ -20,12 +19,13 @@ export default function CountryDetailsScreen({navigation,route}) {
       'featureClass': 'P',
       'orderby': 'population'
     };
-
+    setLoadText("Loading...");
     fetch(GEONAMES_URL + getQueryString(query))
       .then(response => response.json())
       .then((data) => {
         setCities(data);
-      });
+      })
+      .catch(() => setLoadText("Failed to get cities!"));
   },[]);
 
   return (
@@ -42,7 +42,7 @@ export default function CountryDetailsScreen({navigation,route}) {
                 })}/>
             </View>
         ))) : (
-          <Text>Loading Cities...</Text>
+          <Text>{loadText}</Text>
         )
       }
       <View style={{ flex: 1 }} />
