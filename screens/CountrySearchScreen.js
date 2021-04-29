@@ -1,5 +1,5 @@
 import React from 'react';
-import {Text, View, TextInput} from 'react-native';
+import {Text, View, KeyboardAvoidingView, TextInput} from 'react-native';
 import {styles, getInputStyle} from '../Styles';
 import QueryButton from '../components/QueryButton'
 
@@ -29,15 +29,16 @@ export default function CountrySearchScreen({navigation}) {
       )}
       <QueryButton 
         query={{
-          'q': inputCountry,
+          'name': inputCountry,
           'username': 'weknowit',
-          'maxRows': 3,
+          'maxRows': 1,
+          'isNameRequired': true,
           'type': 'json',
-          'featureClass': 'P',
+          'featureCode': 'PCLI',
           'orderby': 'population'
         }}
         onSuccess={(result) => {
-          navigation.navigate('CountryDetail', result);
+          navigation.navigate('CountryDetail', result.geonames[0]);
           setError(null);
         }} 
         onError={setError}/>
